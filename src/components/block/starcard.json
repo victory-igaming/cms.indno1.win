@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_starcards",
+  "info": {
+    "displayName": "starcard",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

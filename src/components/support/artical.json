@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_support_articals",
+  "info": {
+    "displayName": "artical",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

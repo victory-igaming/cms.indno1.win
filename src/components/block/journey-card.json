@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_block_journey_cards",
+  "info": {
+    "displayName": "journeycard",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "integer",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

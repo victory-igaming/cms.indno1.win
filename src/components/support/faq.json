@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_support_faqs",
+  "info": {
+    "displayName": "faq",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "faqtype": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::faqtype.faqtype"
+    }
+  },
+  "config": {}
+}

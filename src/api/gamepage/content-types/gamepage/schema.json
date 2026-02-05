@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gamepages",
+  "info": {
+    "singularName": "gamepage",
+    "pluralName": "gamepages",
+    "displayName": "gamecategoty"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pagename": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "seourl": {
+      "type": "uid",
+      "targetField": "pagename",
+      "required": true
+    },
+    "gamebody": {
+      "type": "dynamiczone",
+      "components": [
+        "support.image-right",
+        "support.image-left",
+        "support.artical",
+        "block.tipwarn",
+        "block.tipsuccess",
+        "block.tipdanger"
+      ]
+    },
+    "gamefaq": {
+      "type": "component",
+      "component": "support.faq",
+      "repeatable": true
+    },
+    "playgames": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::playgame.playgame",
+      "inversedBy": "gamecategoties"
+    },
+    "sponsors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sponsor.sponsor",
+      "inversedBy": "gamecategoties"
+    },
+    "blog": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog.blog",
+      "mappedBy": "gamecategoty"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "agreements",
+  "info": {
+    "singularName": "agreement",
+    "pluralName": "agreements",
+    "displayName": "Agreement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "moto": {
+      "type": "text"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "seourl": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "agreebody": {
+      "type": "dynamiczone",
+      "components": [
+        "support.image-right",
+        "support.image-left",
+        "support.faq",
+        "support.artical",
+        "block.tipwarn",
+        "block.tipsuccess",
+        "block.tipdanger",
+        "block.description"
+      ]
+    }
+  }
+}

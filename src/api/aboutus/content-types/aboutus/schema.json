@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "aboutuses",
+  "info": {
+    "singularName": "aboutus",
+    "pluralName": "aboutuses",
+    "displayName": "aboutus"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "seourl": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "heading": {
+      "type": "component",
+      "component": "block.pagecard",
+      "repeatable": false
+    },
+    "startcard": {
+      "type": "dynamiczone",
+      "components": [
+        "block.starcard"
+      ]
+    },
+    "about": {
+      "type": "component",
+      "component": "block.pagecard",
+      "repeatable": false
+    },
+    "ourcore": {
+      "type": "dynamiczone",
+      "components": [
+        "block.valuecard"
+      ]
+    },
+    "journey": {
+      "type": "dynamiczone",
+      "components": [
+        "block.journey-card"
+      ]
+    },
+    "leadership": {
+      "type": "dynamiczone",
+      "components": [
+        "support.employecard"
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faqtypes",
+  "info": {
+    "singularName": "faqtype",
+    "pluralName": "faqtypes",
+    "displayName": "Faqtype"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seourl": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "faqs",
+  "info": {
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "faq"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seourl": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "faqbody": {
+      "type": "dynamiczone",
+      "components": [
+        "support.faq",
+        "block.description",
+        "block.tipwarn",
+        "block.tipsuccess",
+        "block.tipdanger",
+        "support.artical"
+      ]
+    }
+  }
+}

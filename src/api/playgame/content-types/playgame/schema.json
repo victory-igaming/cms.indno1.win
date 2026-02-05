@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "playgames",
+  "info": {
+    "singularName": "playgame",
+    "pluralName": "playgames",
+    "displayName": "playgame"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "gamename": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "iamge": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seourl": {
+      "type": "uid",
+      "targetField": "gamename"
+    },
+    "gamecategoties": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::gamepage.gamepage",
+      "mappedBy": "playgames"
+    }
+  }
+}

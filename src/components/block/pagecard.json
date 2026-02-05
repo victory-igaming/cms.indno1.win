@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_pagecards",
+  "info": {
+    "displayName": "pagecard",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

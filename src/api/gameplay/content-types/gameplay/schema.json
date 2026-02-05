@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "gameplays",
+  "info": {
+    "singularName": "gameplay",
+    "pluralName": "gameplays",
+    "displayName": "gameplay"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pagename": {
+      "type": "string"
+    },
+    "seourl": {
+      "type": "uid",
+      "targetField": "pagename"
+    },
+    "heroimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gamebody": {
+      "type": "dynamiczone",
+      "components": [
+        "support.image-left",
+        "support.image-right",
+        "support.artical",
+        "block.tipwarn",
+        "block.tipsuccess",
+        "block.tipdanger",
+        "block.description"
+      ]
+    },
+    "gamefaq": {
+      "type": "component",
+      "component": "support.faq",
+      "repeatable": true
+    }
+  }
+}

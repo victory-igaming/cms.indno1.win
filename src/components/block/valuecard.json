@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_block_valuecards",
+  "info": {
+    "displayName": "valuecard",
+    "icon": "thumbUp"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

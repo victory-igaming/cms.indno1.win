@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "gamecategoty": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gamepage.gamepage",
+      "inversedBy": "blog"
+    },
+    "seoUrl": {
+      "type": "uid",
+      "targetField": "heading"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "blogbody": {
+      "type": "dynamiczone",
+      "components": [
+        "support.image-right",
+        "support.image-left",
+        "block.valuecard",
+        "block.tipwarn",
+        "block.tipsuccess",
+        "support.artical"
+      ]
+    },
+    "faqBody": {
+      "type": "dynamiczone",
+      "components": [
+        "support.faq"
+      ]
+    }
+  }
+}
