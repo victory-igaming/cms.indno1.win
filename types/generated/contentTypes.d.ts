@@ -668,12 +668,12 @@ export interface ApiGamepageGamepage extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGameplayGameplay extends Struct.SingleTypeSchema {
-  collectionName: 'gameplays';
+export interface ApiLandingpageLandingpage extends Struct.SingleTypeSchema {
+  collectionName: 'landingpages';
   info: {
-    displayName: 'gameplay';
-    pluralName: 'gameplays';
-    singularName: 'gameplay';
+    displayName: 'Landingpage';
+    pluralName: 'landingpages';
+    singularName: 'landingpage';
   };
   options: {
     draftAndPublish: true;
@@ -682,28 +682,17 @@ export interface ApiGameplayGameplay extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    gamebody: Schema.Attribute.DynamicZone<
-      [
-        'support.image-left',
-        'support.image-right',
-        'support.artical',
-        'block.tipwarn',
-        'block.tipsuccess',
-        'block.tipdanger',
-        'block.description',
-      ]
-    >;
-    gamefaq: Schema.Attribute.Component<'support.faq', true>;
-    heroimage: Schema.Attribute.Media<'images'>;
+    Featuregame: Schema.Attribute.Component<'block.linkcard', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::gameplay.gameplay'
+      'api::landingpage.landingpage'
     > &
       Schema.Attribute.Private;
-    pagename: Schema.Attribute.String;
+    mainslider: Schema.Attribute.Component<'block.slider', true>;
     publishedAt: Schema.Attribute.DateTime;
-    seourl: Schema.Attribute.UID<'pagename'>;
+    sportbody: Schema.Attribute.DynamicZone<['block.sportcard']>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -721,16 +710,28 @@ export interface ApiPlaygamePlaygame extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    bodysponce: Schema.Attribute.DynamicZone<
+      [
+        'support.image-left',
+        'support.image-right',
+        'support.artical',
+        'block.tipwarn',
+        'block.tipsuccess',
+        'block.tipdanger',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    gamebanner: Schema.Attribute.Media<'images'>;
     gamecategoties: Schema.Attribute.Relation<
       'manyToMany',
       'api::gamepage.gamepage'
     >;
+    gameicon: Schema.Attribute.Media<'images'>;
     gamename: Schema.Attribute.String;
-    iamge: Schema.Attribute.Media<'images'>;
+    gameurl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -767,6 +768,7 @@ export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::gamepage.gamepage'
     >;
+    heroimage: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1299,7 +1301,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::faqtype.faqtype': ApiFaqtypeFaqtype;
       'api::gamepage.gamepage': ApiGamepageGamepage;
-      'api::gameplay.gameplay': ApiGameplayGameplay;
+      'api::landingpage.landingpage': ApiLandingpageLandingpage;
       'api::playgame.playgame': ApiPlaygamePlaygame;
       'api::sponsor.sponsor': ApiSponsorSponsor;
       'plugin::content-releases.release': PluginContentReleasesRelease;

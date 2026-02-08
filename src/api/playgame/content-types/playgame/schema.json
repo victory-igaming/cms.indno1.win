@@ -17,7 +17,14 @@
     "description": {
       "type": "text"
     },
-    "iamge": {
+    "gameicon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gamebanner": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -33,6 +40,20 @@
       "relation": "manyToMany",
       "target": "api::gamepage.gamepage",
       "mappedBy": "playgames"
+    },
+    "gameurl": {
+      "type": "string"
+    },
+    "bodysponce": {
+      "type": "dynamiczone",
+      "components": [
+        "support.image-left",
+        "support.image-right",
+        "support.artical",
+        "block.tipwarn",
+        "block.tipsuccess",
+        "block.tipdanger"
+      ]
     }
   }
 }

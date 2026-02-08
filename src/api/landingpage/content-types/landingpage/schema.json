@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "landingpages",
+  "info": {
+    "singularName": "landingpage",
+    "pluralName": "landingpages",
+    "displayName": "Landingpage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "mainslider": {
+      "type": "component",
+      "component": "block.slider",
+      "repeatable": true
+    },
+    "Featuregame": {
+      "type": "component",
+      "component": "block.linkcard",
+      "repeatable": true
+    },
+    "sportbody": {
+      "type": "dynamiczone",
+      "components": [
+        "block.sportcard"
+      ]
+    }
+  }
+}

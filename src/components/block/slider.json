@@ -23,6 +23,13 @@
     },
     "description": {
       "type": "text"
+    },
+    "urllink": {
+      "type": "string"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_block_linkcards",
+  "info": {
+    "displayName": "linkcard",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "linkurl": {
+      "type": "string"
+    },
+    "isextarnal": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}
