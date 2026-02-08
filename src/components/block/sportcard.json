@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_block_sportcards",
+  "info": {
+    "displayName": "sportcard",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

@@ -24,6 +24,20 @@ export interface BlockJourneyCard extends Struct.ComponentSchema {
   };
 }
 
+export interface BlockLinkcard extends Struct.ComponentSchema {
+  collectionName: 'components_block_linkcards';
+  info: {
+    displayName: 'linkcard';
+    icon: 'link';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    isextarnal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    linkurl: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface BlockPagecard extends Struct.ComponentSchema {
   collectionName: 'components_block_pagecards';
   info: {
@@ -46,7 +60,23 @@ export interface BlockSlider extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    urllink: Schema.Attribute.String;
+  };
+}
+
+export interface BlockSportcard extends Struct.ComponentSchema {
+  collectionName: 'components_block_sportcards';
+  info: {
+    displayName: 'sportcard';
+    icon: 'slideshow';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -197,8 +227,10 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'block.description': BlockDescription;
       'block.journey-card': BlockJourneyCard;
+      'block.linkcard': BlockLinkcard;
       'block.pagecard': BlockPagecard;
       'block.slider': BlockSlider;
+      'block.sportcard': BlockSportcard;
       'block.starcard': BlockStarcard;
       'block.tipdanger': BlockTipdanger;
       'block.tipsuccess': BlockTipsuccess;

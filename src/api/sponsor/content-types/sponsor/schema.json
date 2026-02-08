@@ -25,6 +25,13 @@
         "images"
       ]
     },
+    "heroimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "gamecategoties": {
       "type": "relation",
       "relation": "manyToMany",
