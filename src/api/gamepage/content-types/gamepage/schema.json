@@ -58,9 +58,9 @@
       "target": "api::sponsor.sponsor",
       "inversedBy": "gamecategoties"
     },
-    "blog": {
+    "blogs": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::blog.blog",
       "mappedBy": "gamecategoty"
     }

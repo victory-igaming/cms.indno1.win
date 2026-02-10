@@ -20,9 +20,9 @@
     },
     "gamecategoty": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::gamepage.gamepage",
-      "inversedBy": "blog"
+      "inversedBy": "blogs"
     },
     "seoUrl": {
       "type": "uid",

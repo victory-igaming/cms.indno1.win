@@ -536,7 +536,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     description: Schema.Attribute.Text;
     faqBody: Schema.Attribute.DynamicZone<['support.faq']>;
     gamecategoty: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'api::gamepage.gamepage'
     >;
     heading: Schema.Attribute.String & Schema.Attribute.Required;
@@ -631,7 +631,7 @@ export interface ApiGamepageGamepage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blog: Schema.Attribute.Relation<'oneToOne', 'api::blog.blog'>;
+    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
