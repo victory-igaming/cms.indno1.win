@@ -18,6 +18,15 @@
     "description": {
       "type": "text"
     },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_tag": {
+      "type": "text"
+    },
+    "meta_discrp": {
+      "type": "text"
+    },
     "logo": {
       "type": "media",
       "multiple": false,
@@ -49,6 +58,12 @@
         "support.image-left",
         "support.artical"
       ]
+    },
+    "playgames": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::playgame.playgame",
+      "inversedBy": "sponsors"
     }
   }
 }

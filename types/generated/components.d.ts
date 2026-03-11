@@ -46,6 +46,7 @@ export interface BlockPagecard extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    moredescription: Schema.Attribute.Blocks;
     name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -57,6 +58,7 @@ export interface BlockSlider extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
+    btntext: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
@@ -76,6 +78,7 @@ export interface BlockSportcard extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     icon: Schema.Attribute.Media<'images'>;
     image: Schema.Attribute.Media<'images'>;
+    pageurl: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -140,6 +143,7 @@ export interface BlockValuecard extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    moredescription: Schema.Attribute.Blocks;
     name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

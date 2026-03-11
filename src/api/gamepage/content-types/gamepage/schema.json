@@ -15,6 +15,9 @@
       "type": "string",
       "required": true
     },
+    "description": {
+      "type": "text"
+    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -22,7 +25,13 @@
         "images"
       ]
     },
-    "description": {
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_tag": {
+      "type": "text"
+    },
+    "meta_discrp": {
       "type": "text"
     },
     "seourl": {

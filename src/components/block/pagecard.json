@@ -12,6 +12,9 @@
     },
     "description": {
       "type": "text"
+    },
+    "moredescription": {
+      "type": "blocks"
     }
   },
   "config": {}

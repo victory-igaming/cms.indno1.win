@@ -1,0 +1,8 @@
+tunnel: my-tunnel
+credentials-file: /root/.cloudflared/a460c4e8-cc89-4de7-9da5-587d82dd7880.json
+
+ingress:
+  - hostname: cms.indno1.win
+    service: http://localhost:1338
+
+  - service: http_status:404

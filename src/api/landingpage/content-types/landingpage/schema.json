@@ -15,6 +15,12 @@
       "type": "string",
       "required": true
     },
+    "meta_tag": {
+      "type": "text"
+    },
+    "meta_discrp": {
+      "type": "text"
+    },
     "mainslider": {
       "type": "component",
       "component": "block.slider",
@@ -30,6 +36,11 @@
       "components": [
         "block.sportcard"
       ]
+    },
+    "faqbody": {
+      "type": "component",
+      "component": "support.faq",
+      "repeatable": true
     }
   }
 }

@@ -17,6 +17,15 @@
     "description": {
       "type": "text"
     },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_tag": {
+      "type": "text"
+    },
+    "meta_discrp": {
+      "type": "text"
+    },
     "gameicon": {
       "type": "media",
       "multiple": false,
@@ -54,6 +63,15 @@
         "block.tipsuccess",
         "block.tipdanger"
       ]
+    },
+    "sponsors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sponsor.sponsor",
+      "mappedBy": "playgames"
+    },
+    "youtubeurl": {
+      "type": "string"
     }
   }
 }

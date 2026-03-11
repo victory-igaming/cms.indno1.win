@@ -26,6 +26,9 @@
     },
     "description": {
       "type": "text"
+    },
+    "pageurl": {
+      "type": "string"
     }
   },
   "config": {}

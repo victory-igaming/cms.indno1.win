@@ -18,6 +18,15 @@
     "description": {
       "type": "text"
     },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_tag": {
+      "type": "text"
+    },
+    "meta_discrp": {
+      "type": "text"
+    },
     "gamecategoty": {
       "type": "relation",
       "relation": "manyToOne",

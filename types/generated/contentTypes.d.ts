@@ -454,6 +454,8 @@ export interface ApiAboutusAboutus extends Struct.SingleTypeSchema {
       'api::aboutus.aboutus'
     > &
       Schema.Attribute.Private;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     ourcore: Schema.Attribute.DynamicZone<['block.valuecard']>;
     publishedAt: Schema.Attribute.DateTime;
@@ -498,6 +500,8 @@ export interface ApiAgreementAgreement extends Struct.SingleTypeSchema {
       'api::agreement.agreement'
     > &
       Schema.Attribute.Private;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
     moto: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'title'>;
@@ -544,6 +548,9 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     seoUrl: Schema.Attribute.UID<'heading'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -581,6 +588,8 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
       Schema.Attribute.Private;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -614,6 +623,53 @@ export interface ApiFaqtypeFaqtype extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFooterpageFooterpage extends Struct.CollectionTypeSchema {
+  collectionName: 'footerpages';
+  info: {
+    displayName: 'footerpage';
+    pluralName: 'footerpages';
+    singularName: 'footerpage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footerpage.footerpage'
+    > &
+      Schema.Attribute.Private;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.String;
+    pagebody: Schema.Attribute.DynamicZone<
+      [
+        'support.image-right',
+        'support.image-left',
+        'support.artical',
+        'block.valuecard',
+        'block.tipwarn',
+        'block.tipsuccess',
+        'block.tipdanger',
+        'block.description',
+        'block.sportcard',
+      ]
+    >;
+    pagname: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seourl: Schema.Attribute.UID<'pagname'>;
+    topbanner: Schema.Attribute.Media<'images'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -654,6 +710,9 @@ export interface ApiGamepageGamepage extends Struct.CollectionTypeSchema {
       'api::gamepage.gamepage'
     > &
       Schema.Attribute.Private;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.String;
     pagename: Schema.Attribute.String & Schema.Attribute.Required;
     playgames: Schema.Attribute.Relation<
       'manyToMany',
@@ -682,6 +741,7 @@ export interface ApiLandingpageLandingpage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    faqbody: Schema.Attribute.Component<'support.faq', true>;
     Featuregame: Schema.Attribute.Component<'block.linkcard', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -690,9 +750,43 @@ export interface ApiLandingpageLandingpage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     mainslider: Schema.Attribute.Component<'block.slider', true>;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     sportbody: Schema.Attribute.DynamicZone<['block.sportcard']>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMastersettingMastersetting extends Struct.SingleTypeSchema {
+  collectionName: 'mastersettings';
+  info: {
+    displayName: 'mastersetting';
+    pluralName: 'mastersettings';
+    singularName: 'mastersetting';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    google_tagid: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mastersetting.mastersetting'
+    > &
+      Schema.Attribute.Private;
+    meta_discription: Schema.Attribute.Text;
+    meta_image: Schema.Attribute.Media<'images'>;
+    meta_keyword: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -738,11 +832,16 @@ export interface ApiPlaygamePlaygame extends Struct.CollectionTypeSchema {
       'api::playgame.playgame'
     > &
       Schema.Attribute.Private;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'gamename'>;
+    sponsors: Schema.Attribute.Relation<'manyToMany', 'api::sponsor.sponsor'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    youtubeurl: Schema.Attribute.String;
   };
 }
 
@@ -776,7 +875,14 @@ export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images'>;
+    meta_discrp: Schema.Attribute.Text;
+    meta_tag: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.String;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    playgames: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::playgame.playgame'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1300,8 +1406,10 @@ declare module '@strapi/strapi' {
       'api::blog.blog': ApiBlogBlog;
       'api::faq.faq': ApiFaqFaq;
       'api::faqtype.faqtype': ApiFaqtypeFaqtype;
+      'api::footerpage.footerpage': ApiFooterpageFooterpage;
       'api::gamepage.gamepage': ApiGamepageGamepage;
       'api::landingpage.landingpage': ApiLandingpageLandingpage;
+      'api::mastersetting.mastersetting': ApiMastersettingMastersetting;
       'api::playgame.playgame': ApiPlaygamePlaygame;
       'api::sponsor.sponsor': ApiSponsorSponsor;
       'plugin::content-releases.release': PluginContentReleasesRelease;

@@ -30,6 +30,9 @@
     "isExternal": {
       "type": "boolean",
       "default": false
+    },
+    "btntext": {
+      "type": "string"
     }
   },
   "config": {}

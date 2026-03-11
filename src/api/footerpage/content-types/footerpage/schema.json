@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "footerpages",
+  "info": {
+    "singularName": "footerpage",
+    "pluralName": "footerpages",
+    "displayName": "footerpage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pagname": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "topbanner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_tag": {
+      "type": "text"
+    },
+    "meta_discrp": {
+      "type": "text"
+    },
+    "seourl": {
+      "type": "uid",
+      "targetField": "pagname"
+    },
+    "pagebody": {
+      "type": "dynamiczone",
+      "components": [
+        "support.image-right",
+        "support.image-left",
+        "support.artical",
+        "block.valuecard",
+        "block.tipwarn",
+        "block.tipsuccess",
+        "block.tipdanger",
+        "block.description",
+        "block.sportcard"
+      ]
+    }
+  }
+}

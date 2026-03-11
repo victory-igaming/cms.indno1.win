@@ -15,6 +15,12 @@
       "type": "string",
       "required": true
     },
+    "meta_tag": {
+      "type": "text"
+    },
+    "meta_discrp": {
+      "type": "text"
+    },
     "moto": {
       "type": "text"
     },
