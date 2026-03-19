@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supports",
+  "info": {
+    "singularName": "support",
+    "pluralName": "supports",
+    "displayName": "Support"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::support.support",
+      "mappedBy": "parent"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::support.support",
+      "inversedBy": "children"
+    },
+    "suportBody": {
+      "type": "dynamiczone",
+      "components": [
+        "support.suportcard",
+        "support.image-block",
+        "support.artical",
+        "block.tipwarn",
+        "block.tipsuccess",
+        "block.tipdanger",
+        "support.faq"
+      ]
+    }
+  }
+}

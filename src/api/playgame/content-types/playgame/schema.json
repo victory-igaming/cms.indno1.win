@@ -61,7 +61,8 @@
         "support.artical",
         "block.tipwarn",
         "block.tipsuccess",
-        "block.tipdanger"
+        "block.tipdanger",
+        "support.faq"
       ]
     },
     "sponsors": {

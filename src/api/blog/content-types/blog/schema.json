@@ -65,6 +65,10 @@
       "components": [
         "support.faq"
       ]
+    },
+    "backlink": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

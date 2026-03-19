@@ -187,6 +187,18 @@ export interface SupportFaq extends Struct.ComponentSchema {
   };
 }
 
+export interface SupportImageBlock extends Struct.ComponentSchema {
+  collectionName: 'components_support_image_blocks';
+  info: {
+    displayName: 'imageBlock';
+    icon: 'picture';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface SupportImageLeft extends Struct.ComponentSchema {
   collectionName: 'components_support_image_lefts';
   info: {
@@ -243,6 +255,7 @@ declare module '@strapi/strapi' {
       'support.artical': SupportArtical;
       'support.employecard': SupportEmployecard;
       'support.faq': SupportFaq;
+      'support.image-block': SupportImageBlock;
       'support.image-left': SupportImageLeft;
       'support.image-right': SupportImageRight;
       'support.suportcard': SupportSuportcard;

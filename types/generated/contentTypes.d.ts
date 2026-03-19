@@ -524,6 +524,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     admin_user: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
+    backlink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     blogbody: Schema.Attribute.DynamicZone<
       [
         'support.image-right',
@@ -812,6 +813,7 @@ export interface ApiPlaygamePlaygame extends Struct.CollectionTypeSchema {
         'block.tipwarn',
         'block.tipsuccess',
         'block.tipdanger',
+        'support.faq',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -885,6 +887,50 @@ export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSupportSupport extends Struct.CollectionTypeSchema {
+  collectionName: 'supports';
+  info: {
+    displayName: 'Support';
+    pluralName: 'supports';
+    singularName: 'support';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    children: Schema.Attribute.Relation<'oneToMany', 'api::support.support'>;
+    content: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::support.support'
+    > &
+      Schema.Attribute.Private;
+    parent: Schema.Attribute.Relation<'manyToOne', 'api::support.support'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    suportBody: Schema.Attribute.DynamicZone<
+      [
+        'support.suportcard',
+        'support.image-block',
+        'support.artical',
+        'block.tipwarn',
+        'block.tipsuccess',
+        'block.tipdanger',
+        'support.faq',
+      ]
+    >;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1412,6 +1458,7 @@ declare module '@strapi/strapi' {
       'api::mastersetting.mastersetting': ApiMastersettingMastersetting;
       'api::playgame.playgame': ApiPlaygamePlaygame;
       'api::sponsor.sponsor': ApiSponsorSponsor;
+      'api::support.support': ApiSupportSupport;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
