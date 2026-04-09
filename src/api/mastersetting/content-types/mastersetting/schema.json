@@ -29,6 +29,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "liveutube": {
+      "type": "string"
+    },
+    "livenews": {
+      "type": "text"
     }
   }
 }

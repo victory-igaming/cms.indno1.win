@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spin_histories",
+  "info": {
+    "singularName": "spin-history",
+    "pluralName": "spin-histories",
+    "displayName": "Spin-history"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone": {
+      "type": "string"
+    },
+    "prize_label": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "spinstatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending, ",
+        "claimed, ",
+        "expired"
+      ]
+    },
+    "transactionId": {
+      "type": "string"
+    }
+  }
+}

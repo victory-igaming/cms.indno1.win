@@ -41,6 +41,11 @@
       "type": "component",
       "component": "support.faq",
       "repeatable": true
+    },
+    "textbody": {
+      "type": "component",
+      "component": "support.artical",
+      "repeatable": true
     }
   }
 }

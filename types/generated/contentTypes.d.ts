@@ -677,6 +677,40 @@ export interface ApiFooterpageFooterpage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGamePlayTrackGamePlayTrack
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'game_play_tracks';
+  info: {
+    displayName: 'game-play-track';
+    pluralName: 'game-play-tracks';
+    singularName: 'game-play-track';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    duration: Schema.Attribute.Integer;
+    game_name: Schema.Attribute.String;
+    ip_address: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::game-play-track.game-play-track'
+    > &
+      Schema.Attribute.Private;
+    phone: Schema.Attribute.String;
+    play_end: Schema.Attribute.DateTime;
+    play_start: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGamepageGamepage extends Struct.CollectionTypeSchema {
   collectionName: 'gamepages';
   info: {
@@ -755,6 +789,7 @@ export interface ApiLandingpageLandingpage extends Struct.SingleTypeSchema {
     meta_tag: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     sportbody: Schema.Attribute.DynamicZone<['block.sportcard']>;
+    textbody: Schema.Attribute.Component<'support.artical', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -777,6 +812,8 @@ export interface ApiMastersettingMastersetting extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     google_tagid: Schema.Attribute.Text;
+    livenews: Schema.Attribute.Text;
+    liveutube: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -814,6 +851,9 @@ export interface ApiPlaygamePlaygame extends Struct.CollectionTypeSchema {
         'block.tipsuccess',
         'block.tipdanger',
         'support.faq',
+        'support.suportcard',
+        'block.description',
+        'support.image-block',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -826,8 +866,11 @@ export interface ApiPlaygamePlaygame extends Struct.CollectionTypeSchema {
       'api::gamepage.gamepage'
     >;
     gameicon: Schema.Attribute.Media<'images'>;
+    gameimage: Schema.Attribute.Media<'images' | 'videos'>;
     gamename: Schema.Attribute.String;
+    gameplayurl: Schema.Attribute.Text;
     gameurl: Schema.Attribute.String;
+    isIframeuse: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -837,13 +880,49 @@ export interface ApiPlaygamePlaygame extends Struct.CollectionTypeSchema {
     meta_discrp: Schema.Attribute.Text;
     meta_tag: Schema.Attribute.Text;
     meta_title: Schema.Attribute.String;
+    pricerate: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'gamename'>;
     sponsors: Schema.Attribute.Relation<'manyToMany', 'api::sponsor.sponsor'>;
+    startprice: Schema.Attribute.Decimal;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     youtubeurl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiSpinHistorySpinHistory extends Struct.CollectionTypeSchema {
+  collectionName: 'spin_histories';
+  info: {
+    displayName: 'Spin-history';
+    pluralName: 'spin-histories';
+    singularName: 'spin-history';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    amount: Schema.Attribute.Decimal;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::spin-history.spin-history'
+    > &
+      Schema.Attribute.Private;
+    phone: Schema.Attribute.String;
+    prize_label: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    spinstatus: Schema.Attribute.Enumeration<
+      ['pending, ', 'claimed, ', 'expired']
+    >;
+    transactionId: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -859,7 +938,12 @@ export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
   };
   attributes: {
     bodysponce: Schema.Attribute.DynamicZone<
-      ['support.image-right', 'support.image-left', 'support.artical']
+      [
+        'support.image-right',
+        'support.image-left',
+        'support.artical',
+        'support.faq',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1453,10 +1537,12 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::faqtype.faqtype': ApiFaqtypeFaqtype;
       'api::footerpage.footerpage': ApiFooterpageFooterpage;
+      'api::game-play-track.game-play-track': ApiGamePlayTrackGamePlayTrack;
       'api::gamepage.gamepage': ApiGamepageGamepage;
       'api::landingpage.landingpage': ApiLandingpageLandingpage;
       'api::mastersetting.mastersetting': ApiMastersettingMastersetting;
       'api::playgame.playgame': ApiPlaygamePlaygame;
+      'api::spin-history.spin-history': ApiSpinHistorySpinHistory;
       'api::sponsor.sponsor': ApiSponsorSponsor;
       'api::support.support': ApiSupportSupport;
       'plugin::content-releases.release': PluginContentReleasesRelease;

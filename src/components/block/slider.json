@@ -21,6 +21,13 @@
         "audios"
       ]
     },
+    "mobimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "description": {
       "type": "text"
     },
@@ -33,6 +40,9 @@
     },
     "btntext": {
       "type": "string"
+    },
+    "testing": {
+      "type": "integer"
     }
   },
   "config": {}

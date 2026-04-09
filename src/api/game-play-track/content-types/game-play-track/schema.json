@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game_play_tracks",
+  "info": {
+    "singularName": "game-play-track",
+    "pluralName": "game-play-tracks",
+    "displayName": "game-play-track"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone": {
+      "type": "string"
+    },
+    "game_name": {
+      "type": "string"
+    },
+    "play_start": {
+      "type": "datetime"
+    },
+    "play_end": {
+      "type": "datetime"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "ip_address": {
+      "type": "string"
+    }
+  }
+}

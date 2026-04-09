@@ -16,6 +16,9 @@
         "images",
         "videos"
       ]
+    },
+    "bannerurl": {
+      "type": "string"
     }
   },
   "config": {}

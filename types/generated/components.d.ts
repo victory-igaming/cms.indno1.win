@@ -63,7 +63,9 @@ export interface BlockSlider extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
     isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    mobimage: Schema.Attribute.Media<'images'>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    testing: Schema.Attribute.Integer;
     urllink: Schema.Attribute.String;
   };
 }
@@ -194,6 +196,7 @@ export interface SupportImageBlock extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
+    bannerurl: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'videos'>;
     name: Schema.Attribute.String;
   };

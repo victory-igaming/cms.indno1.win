@@ -40,6 +40,14 @@
         "images"
       ]
     },
+    "gameimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
     "seourl": {
       "type": "uid",
       "targetField": "gamename"
@@ -62,7 +70,10 @@
         "block.tipwarn",
         "block.tipsuccess",
         "block.tipdanger",
-        "support.faq"
+        "support.faq",
+        "support.suportcard",
+        "block.description",
+        "support.image-block"
       ]
     },
     "sponsors": {
@@ -73,6 +84,19 @@
     },
     "youtubeurl": {
       "type": "string"
+    },
+    "gameplayurl": {
+      "type": "text"
+    },
+    "isIframeuse": {
+      "type": "boolean",
+      "default": true
+    },
+    "startprice": {
+      "type": "decimal"
+    },
+    "pricerate": {
+      "type": "integer"
     }
   }
 }

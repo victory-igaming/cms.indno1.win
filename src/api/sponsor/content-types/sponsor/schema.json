@@ -56,7 +56,8 @@
       "components": [
         "support.image-right",
         "support.image-left",
-        "support.artical"
+        "support.artical",
+        "support.faq"
       ]
     },
     "playgames": {
