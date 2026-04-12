@@ -97,6 +97,11 @@
     },
     "pricerate": {
       "type": "integer"
+    },
+    "gamebody": {
+      "type": "component",
+      "component": "support.howtoplay",
+      "repeatable": true
     }
   }
 }

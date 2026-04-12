@@ -861,6 +861,7 @@ export interface ApiPlaygamePlaygame extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     gamebanner: Schema.Attribute.Media<'images'>;
+    gamebody: Schema.Attribute.Component<'support.howtoplay', true>;
     gamecategoties: Schema.Attribute.Relation<
       'manyToMany',
       'api::gamepage.gamepage'
@@ -916,9 +917,7 @@ export interface ApiSpinHistorySpinHistory extends Struct.CollectionTypeSchema {
     phone: Schema.Attribute.String;
     prize_label: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    spinstatus: Schema.Attribute.Enumeration<
-      ['pending, ', 'claimed, ', 'expired']
-    >;
+    spinstatus: Schema.Attribute.Enumeration<['pending', 'claimed', 'expired']>;
     transactionId: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

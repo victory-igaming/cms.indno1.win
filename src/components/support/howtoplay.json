@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_support_howtoplays",
+  "info": {
+    "displayName": "howtoplay",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tabname": {
+      "type": "string"
+    },
+    "gameview": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

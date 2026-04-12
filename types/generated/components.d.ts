@@ -189,6 +189,20 @@ export interface SupportFaq extends Struct.ComponentSchema {
   };
 }
 
+export interface SupportHowtoplay extends Struct.ComponentSchema {
+  collectionName: 'components_support_howtoplays';
+  info: {
+    displayName: 'howtoplay';
+    icon: 'stack';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    gameview: Schema.Attribute.Media<'images' | 'videos'>;
+    tabname: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SupportImageBlock extends Struct.ComponentSchema {
   collectionName: 'components_support_image_blocks';
   info: {
@@ -258,6 +272,7 @@ declare module '@strapi/strapi' {
       'support.artical': SupportArtical;
       'support.employecard': SupportEmployecard;
       'support.faq': SupportFaq;
+      'support.howtoplay': SupportHowtoplay;
       'support.image-block': SupportImageBlock;
       'support.image-left': SupportImageLeft;
       'support.image-right': SupportImageRight;

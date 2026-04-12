@@ -23,8 +23,8 @@
     "spinstatus": {
       "type": "enumeration",
       "enum": [
-        "pending, ",
-        "claimed, ",
+        "pending",
+        "claimed",
         "expired"
       ]
     },
