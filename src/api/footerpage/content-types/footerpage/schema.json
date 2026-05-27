@@ -51,6 +51,11 @@
         "block.description",
         "block.sportcard"
       ]
+    },
+    "textbody": {
+      "type": "component",
+      "component": "support.artical",
+      "repeatable": false
     }
   }
 }

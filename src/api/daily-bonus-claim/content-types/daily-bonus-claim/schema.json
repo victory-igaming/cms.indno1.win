@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "daily_bonus_claims",
+  "info": {
+    "singularName": "daily-bonus-claim",
+    "pluralName": "daily-bonus-claims",
+    "displayName": "daily-bonus-claim"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userId": {
+      "type": "string"
+    },
+    "mobileNumber": {
+      "type": "string"
+    },
+    "claimDay": {
+      "type": "integer"
+    },
+    "rewardType": {
+      "type": "enumeration",
+      "enum": [
+        "Cash",
+        "discount",
+        "coins",
+        "gift",
+        "bonus",
+        "jackpot"
+      ]
+    },
+    "rewardValue": {
+      "type": "string"
+    },
+    "rewardTitle": {
+      "type": "string"
+    },
+    "claimedAt": {
+      "type": "datetime"
+    }
+  }
+}

@@ -54,6 +54,11 @@
         "block.tipdanger",
         "support.faq"
       ]
+    },
+    "textbody": {
+      "type": "component",
+      "component": "support.artical",
+      "repeatable": false
     }
   }
 }

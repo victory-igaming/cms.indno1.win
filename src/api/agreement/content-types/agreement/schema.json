@@ -43,6 +43,11 @@
         "block.tipdanger",
         "block.description"
       ]
+    },
+    "textbody": {
+      "type": "component",
+      "component": "support.artical",
+      "repeatable": false
     }
   }
 }

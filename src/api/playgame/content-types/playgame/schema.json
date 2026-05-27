@@ -102,6 +102,11 @@
       "type": "component",
       "component": "support.howtoplay",
       "repeatable": true
+    },
+    "textbody": {
+      "type": "component",
+      "component": "support.artical",
+      "repeatable": false
     }
   }
 }

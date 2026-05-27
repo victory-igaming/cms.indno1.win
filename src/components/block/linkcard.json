@@ -9,7 +9,24 @@
     "name": {
       "type": "string"
     },
+    "moredata": {
+      "type": "text"
+    },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tabimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mobimage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

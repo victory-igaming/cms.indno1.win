@@ -461,6 +461,7 @@ export interface ApiAboutusAboutus extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     startcard: Schema.Attribute.DynamicZone<['block.starcard']>;
+    textbody: Schema.Attribute.Component<'support.artical', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -505,6 +506,7 @@ export interface ApiAgreementAgreement extends Struct.SingleTypeSchema {
     moto: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'title'>;
+    textbody: Schema.Attribute.Component<'support.artical', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -557,6 +559,43 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDailyBonusClaimDailyBonusClaim
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'daily_bonus_claims';
+  info: {
+    displayName: 'daily-bonus-claim';
+    pluralName: 'daily-bonus-claims';
+    singularName: 'daily-bonus-claim';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    claimDay: Schema.Attribute.Integer;
+    claimedAt: Schema.Attribute.DateTime;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::daily-bonus-claim.daily-bonus-claim'
+    > &
+      Schema.Attribute.Private;
+    mobileNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    rewardTitle: Schema.Attribute.String;
+    rewardType: Schema.Attribute.Enumeration<
+      ['Cash', 'discount', 'coins', 'gift', 'bonus', 'jackpot']
+    >;
+    rewardValue: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    userId: Schema.Attribute.String;
   };
 }
 
@@ -670,6 +709,7 @@ export interface ApiFooterpageFooterpage extends Struct.CollectionTypeSchema {
     pagname: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'pagname'>;
+    textbody: Schema.Attribute.Component<'support.artical', false>;
     topbanner: Schema.Attribute.Media<'images'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -756,6 +796,7 @@ export interface ApiGamepageGamepage extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seourl: Schema.Attribute.UID<'pagename'> & Schema.Attribute.Required;
     sponsors: Schema.Attribute.Relation<'manyToMany', 'api::sponsor.sponsor'>;
+    textbody: Schema.Attribute.Component<'support.artical', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -787,9 +828,10 @@ export interface ApiLandingpageLandingpage extends Struct.SingleTypeSchema {
     mainslider: Schema.Attribute.Component<'block.slider', true>;
     meta_discrp: Schema.Attribute.Text;
     meta_tag: Schema.Attribute.Text;
+    promobody: Schema.Attribute.Component<'block.linkcard', true>;
     publishedAt: Schema.Attribute.DateTime;
     sportbody: Schema.Attribute.DynamicZone<['block.sportcard']>;
-    textbody: Schema.Attribute.Component<'support.artical', true>;
+    textbody: Schema.Attribute.Component<'support.artical', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -886,6 +928,7 @@ export interface ApiPlaygamePlaygame extends Struct.CollectionTypeSchema {
     seourl: Schema.Attribute.UID<'gamename'>;
     sponsors: Schema.Attribute.Relation<'manyToMany', 'api::sponsor.sponsor'>;
     startprice: Schema.Attribute.Decimal;
+    textbody: Schema.Attribute.Component<'support.artical', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1013,6 +1056,7 @@ export interface ApiSupportSupport extends Struct.CollectionTypeSchema {
         'support.faq',
       ]
     >;
+    textbody: Schema.Attribute.Component<'support.artical', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1533,6 +1577,7 @@ declare module '@strapi/strapi' {
       'api::aboutus.aboutus': ApiAboutusAboutus;
       'api::agreement.agreement': ApiAgreementAgreement;
       'api::blog.blog': ApiBlogBlog;
+      'api::daily-bonus-claim.daily-bonus-claim': ApiDailyBonusClaimDailyBonusClaim;
       'api::faq.faq': ApiFaqFaq;
       'api::faqtype.faqtype': ApiFaqtypeFaqtype;
       'api::footerpage.footerpage': ApiFooterpageFooterpage;

@@ -34,7 +34,10 @@ export interface BlockLinkcard extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     isextarnal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     linkurl: Schema.Attribute.String;
+    mobimage: Schema.Attribute.Media<'images'>;
+    moredata: Schema.Attribute.Text;
     name: Schema.Attribute.String;
+    tabimage: Schema.Attribute.Media<'images'>;
   };
 }
 
